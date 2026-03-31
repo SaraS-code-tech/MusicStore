@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" th:href="@{/assets/img/logo.png}">
+<title>Music Store</title>
+<link rel="stylesheet" th:href="@{./style.css}">
+</head>
+<body>
+	<div class="row pt-4" id="title">
+		<div class="col">
+			<i class="fa-solid fa-home fa-xl" id="all-products"></i>
+		</div>
+		<div class="col">
+
+			<h1>The Music Store</h1>
+			<p>Where music takes life!</p>
+
+			<h3>User</h3>
+		</div>
+		<div class="col"></div>
+	</div>
+
+	<div class="row justify-content-center align-items-center">
+		<div class="col-10 col-md-6 col-lg-4">
+			<form action="/login" method="post" id="loginForm">
+				<div class="mb-3">
+					<label class="form-label">Email</label>
+					<input type="text" name="email" class="form-control" autocomplete="off" placeholder="test@gmail.com">
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label">Password</label>
+					<input type="password" name="password" class="form-control" autocomplete="off" placeholder="Password">
+				</div>
+				
+				<button type="submit" class="form-control btn btn-outline-secondary" id="submitLogin" >Login</button>
+			</form>
+		</div>
+	</div>
+
+
+	<script type="module" th:src="@{../assets/main.js}"></script>
+</body>
+</html>

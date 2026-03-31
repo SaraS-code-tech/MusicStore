@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" th:href="@{/assets/img/logo.png}">
+<title>Music Store</title>
+<link rel="stylesheet" th:href="@{./style.css}">
+</head>
+<body>
+	<div class="row pt-4" id="title">
+		<div class="col">
+			<i class="fa-solid fa-bars fa-xl" data-bs-toggle="offcanvas"
+				data-bs-target="#sidebarMenu"></i>
+		</div>
+		<div class="col">
+			<h1>The Music Store</h1>
+			<p>Where music takes life!</p>
+
+			<h3 th:text="${categoryName}"></h3>
+		</div>
+		<div class="col">
+			<i class="fa-solid fa-cart-shopping fa-xl" id="cart"></i>
+		</div>
+	</div>
+
+	<div class="products-grid">
+		<div class="product-card" th:each="p : ${products}">
+
+			<img th:src="${p.image_url}" alt="Album Cover">
+
+			<h2 th:text="${p.name + ' - ' + p.format}"></h2>
+			<p class="artist" th:text="${p.artist}"></p>
+
+			<p class="price">
+				$ <span th:text="${p.price}"></span>
+			</p>
+
+		</div>
+	</div>
+
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title">Filters</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+		</div>
+
+		<div class="offcanvas-body">
+
+			<!-- Barra di ricerca -->
+			<div class="input-group mb-3">
+				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+				<input type="text" class="form-control" id="searchBar"
+					autocomplete="off" placeholder="Search album, artist...">
+			</div>
+
+			<h6 class="fw-bold mt-4">Categories</h6>
+
+			<!-- Lista categorie dinamiche -->
+			<ul class="list-group" id="listaFiltri">
+				<li
+					class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+					id="all-products">All Products <i class="fa-solid fa-home"></i>
+				</li>
+				<li
+					class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+					data-type="M">Music <i class="fa-solid fa-angle-down"></i>
+				</li>
+
+				<li
+					class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+					data-type="C">Clothes <i class="fa-solid fa-angle-down"></i>
+				</li>
+
+				<li
+					class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+					data-type="A">Accessories <i class="fa-solid fa-angle-down"></i>
+				</li>
+
+				<li
+					class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+					data-type="O">Objects <i class="fa-solid fa-angle-down"></i>
+				</li>
+			</ul>
+
+		</div>
+
+		<div class="offcanvas-footer border-top p-3">
+			<div class="user-footer" id="user">
+				<i class="fa-solid fa-user fa-lg"></i> <span class="user-text">User</span>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script type="module" th:src="@{../assets/main.js}"></script>
+</body>
+</html>

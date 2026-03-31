@@ -1,0 +1,213 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css");
+
+#title {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.products-grid {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.product-card .artist {
+    font-size: 14px;
+    color: #555;
+}
+
+.product-card .price {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease-in-out;
+}
+
+#cart {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#resume {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.cart-header {
+  display: flex;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* RIGA */
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #333;
+}
+
+/* COLONNE */
+.cart-col.product { flex: 4; display: flex; gap: 20px; }
+.cart-col.price,
+.cart-col.qty,
+.cart-col.total {
+  flex: 1;
+  text-align: center;
+}
+
+/* IMMAGINE */
+.cart-col.product img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+/* INFO */
+.product-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.remove {
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* QUANTITY */
+.cart-col.qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-col.qty button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #000;
+  background: none;
+  cursor: pointer;
+}
+
+#summary {
+  padding: 40px;
+}
+
+.summary-box {
+  border: 1px solid #333;
+  padding: 30px;
+  position: sticky;
+  top: 40px;
+}
+
+/* TITOLO */
+.summary-box h3 {
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+
+/* RIGHE */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.summary-row.total {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* LINEA */
+.summary-box hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #333;
+}
+
+/* BOTTONE */
+.checkout-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.checkout-btn:hover {
+  opacity: 0.9;
+}
+
+.offcanvas {
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.offcanvas-footer {
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.user-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spazio tra icona e testo */
+  cursor: pointer;
+}
+
+.user-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" th:href="@{/assets/img/logo.png}">
+<title>Music Store</title>
+<link rel="stylesheet" th:href="@{./style.css}">
+</head>
+<body>
+	<div class="row pt-4" id="title">
+		<div class="col">
+			<i class="fa-solid fa-home fa-xl" id="all-products"></i>
+		</div>
+		<div class="col">
+			<!--  <img src="/assets/img/logo.png" alt="logo" style="width: 250px; height: 150px;"> -->
+			
+			<h1>The Music Store</h1> 
+			<p>Where music takes life!</p>
+
+			<h3>My Cart</h3>
+		</div>
+		<div class="col">
+			<i class="fa-solid fa-user fa-xl" id="user"></i>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col" id="resume">
+
+			<!-- HEADER -->
+			<div class="cart-header">
+				<div class="cart-col product">Product</div>
+				<div class="cart-col price">Price</div>
+				<div class="cart-col qty">Quantity</div>
+				<div class="cart-col total">Total</div>
+			</div>
+
+			<!-- ITEMS -->
+			<div class="cart-item" th:each="p : ${products}">
+
+				<div class="cart-col product">
+					<img th:src="${p.image_url}" alt="Album Cover">
+					<div class="product-info">
+						<h4 th:text="${p.name + ' - ' + p.format}"></h4>
+						<p th:text="${p.artist}"></p>
+						<a href="#" class="remove">Remove</a>
+					</div>
+				</div>
+
+				<div class="cart-col price">
+					$<span th:text="${p.price}"></span>
+				</div>
+
+				<div class="cart-col qty">
+					<button>-</button>
+					<span th:text="${p.stock_quantity}"></span>
+					<button>+</button>
+				</div>
+
+				<div class="cart-col total">
+					$<span th:text="${p.price * p.stock_quantity}"></span>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="col">
+			<div id="summary">
+				<div class="summary-box">
+
+					<h3>Order Summary</h3>
+
+					<div class="summary-row">
+						<span>Subtotal</span> <span>$<span th:text="${subtotal}"></span></span>
+					</div>
+
+					<div class="summary-row">
+						<span>Shipping</span> <span>Free</span>
+					</div>
+
+					<hr>
+					<div class="summary-row discount-row input-group mb-3">
+						<input type="text" class="form-control" id="discount"
+							autocomplete="off" placeholder="Discount">
+					</div>
+					<div class="summary-row total">
+						<span>Total</span> <span>$<span th:text="${total}"></span></span>
+					</div>
+
+					<button class="checkout-btn">Checkout</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="module" th:src="@{../assets/main.js}"></script>
+</body>
+</html>
